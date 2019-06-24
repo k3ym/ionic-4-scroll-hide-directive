@@ -18,6 +18,7 @@ export class ScrollHideDirective {
 
     ngOnChanges(changes: SimpleChanges) {
         if (this.scrollContent && this.config) {
+            this.scrollContent.scrollEvents = true;
             this.scrollContent.ionScrollStart.subscribe(async (ev) => {
                 const el = await this.scrollContent.getScrollElement();
                 this.contentHeight = el.offsetHeight;
